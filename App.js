@@ -10,3 +10,4 @@ toggleButton.addEventListener('click', ()=>{
 closeBtn.addEventListener('click', ()=>{
     sidebar.classList.remove("show_time");
 })
+
