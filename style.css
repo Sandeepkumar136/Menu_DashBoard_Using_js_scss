@@ -280,7 +280,6 @@ header {
 .btn_container {
   display: flex;
   justify-content: center;
-  border: 2px solid #000;
   align-items: center;
   padding: 0.5rem 0;
   gap: 0.3rem;
@@ -295,4 +294,5 @@ header {
   font-weight: 400;
   font-size: 1rem;
   text-transform: capitalize;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

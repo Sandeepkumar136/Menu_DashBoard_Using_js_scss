@@ -144,3 +144,23 @@ function displayMenuItems(MenuItem){
     content_Center.innerHTML =displayMenu;
     // console.log(displayMenu)
 };
+
+function displayMenuButtons(){
+    const categories = data.reduce(
+        function (values, item){
+            if(!values.includes(item.category)){
+                values.push(item.category);
+            }
+            return values;
+        },
+        ['all']
+    )
+};
+const categoryBtn=categories.map((category)=>{
+    return `<button type="button" class="filter_btn">${category}</button>`;
+}).join("");
+
+button_center.innerHTML=categoryBtn;
+const filter_btn=button_center.querySelectorAll('.filter_btn');
+console.log(filter_btn);
+
