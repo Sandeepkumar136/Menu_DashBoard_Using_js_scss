@@ -114,6 +114,7 @@ closeBtn.addEventListener('click', ()=>{
 
 window.addEventListener("DOMContentLoaded", ()=>{
     displayMenuItems(data);
+    displayMenuButtons()
 })
 
 function displayMenuItems(MenuItem){
@@ -145,6 +146,7 @@ function displayMenuItems(MenuItem){
     // console.log(displayMenu)
 };
 
+// Button Filter
 function displayMenuButtons(){
     const categories = data.reduce(
         function (values, item){
@@ -154,13 +156,37 @@ function displayMenuButtons(){
             return values;
         },
         ['all']
-    )
-};
+    );
+
 const categoryBtn=categories.map((category)=>{
     return `<button type="button" class="filter_btn">${category}</button>`;
 }).join("");
 
-button_center.innerHTML=categoryBtn;
+button_center.innerHTML = categoryBtn;
 const filter_btn=button_center.querySelectorAll('.filter_btn');
-console.log(filter_btn);
+// console.log(filter_btn);
 
+
+
+filter_btn.forEach(function (btn){
+    btn.addEventListener('click', function(e){
+        const category = e.currentTarget.dataset.id;
+        // console.log(e.currentTarget.dataset);
+        const menuCategory = data.filter(function(menuItem){
+            console.log(menuItem.category)
+            if(menuItem.category===category){
+                return menuItem
+            }
+            // console.log(menuItem.category)
+        });
+        if(category === 'all'){
+            displayMenuItems(data);
+        } else {
+            displayMenuItems(menuCategory);
+        }
+    });
+});
+
+
+
+};
